@@ -1,406 +1,338 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rekap Laporan Hasil Riset - Dampak Bencana Aceh</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+import React from 'react';
+import { 
+  Home, 
+  Droplets, 
+  Activity, 
+  Smile, 
+  Briefcase, 
+  ShoppingCart, 
+  AlertTriangle, 
+  ClipboardCheck,
+  MapPin,
+  Users
+} from 'lucide-react';
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#90C83E', // C:44 M:00 Y:99 K:00
-                        gray: '#808080',    // C:00 M:00 Y:00 K:50
-                        darkGray: '#4D4D4D', // C:00 M:00 Y:00 K:70
-                    },
-                    fontFamily: {
-                        montserrat: ['Montserrat', 'sans-serif'],
-                        openSans: ['Open Sans', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+const App = () => {
+  // Palet Warna Sesuai Permintaan
+  const colors = {
+    primary: '#90C83E', // Hijau
+    gray: '#808080',    // Abu-abu
+    white: '#FFFFFF',
+    darkGray: '#4D4D4D' // Abu-abu Tua
+  };
 
-    <style>
-        body { font-family: 'Open Sans', sans-serif; }
-        .font-montserrat { font-family: 'Montserrat', sans-serif; }
-    </style>
-</head>
-<body class="bg-[#F5F5F5] text-darkGray">
+  const SectionTitle = ({ icon: Icon, title, dark = false }) => (
+    <div className={`flex items-center gap-3 mb-6 ${dark ? 'text-white' : 'text-darkGray'}`}>
+      <div className={`p-2 rounded-lg ${dark ? 'bg-white text-[#90C83E]' : 'bg-[#90C83E] text-white'}`}>
+        <Icon size={24} />
+      </div>
+      <h2 className="text-xl md:text-2xl font-bold font-montserrat uppercase tracking-wide">{title}</h2>
+    </div>
+  );
 
-    <!-- Header / Hero -->
-    <header class="bg-primary text-white py-16 px-6 text-center shadow-lg">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-extrabold font-montserrat mb-4 tracking-tight uppercase">
-                REKAP LAPORAN HASIL RISET
-            </h1>
-            <p class="text-xl md:text-2xl font-light opacity-90 leading-relaxed uppercase tracking-widest">
-                Dampak Bencana Aceh & Rekomendasi Program
-            </p>
-            <div class="mt-8 flex justify-center gap-4 text-sm font-medium">
-                <span class="bg-white/20 px-4 py-2 rounded-full border border-white/30 italic">Riset dilakukan oleh Tim SRD IZI</span>
-            </div>
+  const StatCard = ({ label, value, subtext }) => (
+    <div className="bg-white p-6 rounded-xl border-l-4 border-[#90C83E] shadow-sm">
+      <div className="text-4xl font-bold text-[#90C83E] mb-1">{value}</div>
+      <div className="text-sm font-bold text-darkGray uppercase font-montserrat tracking-tight">{label}</div>
+      {subtext && <div className="text-xs text-gray mt-2 font-open-sans italic">{subtext}</div>}
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-[#F5F5F5] font-open-sans text-darkGray">
+      {/* Header Utama */}
+      <header className="bg-[#90C83E] text-white py-16 px-6 text-center shadow-lg">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl md:text-5xl font-extrabold font-montserrat mb-4 tracking-tight">
+            REKAP HASIL RISET LAPANGAN
+          </h1>
+          <p className="text-lg md:text-xl font-light opacity-90 leading-relaxed uppercase tracking-widest">
+            Dampak Banjir Aceh & Langkah Pemulihan
+          </p>
+          <div className="mt-8 flex justify-center gap-4 text-sm font-medium">
+            <span className="bg-white/20 px-4 py-2 rounded-full border border-white/30">Laporan Tim Divisi SRD IZI</span>
+          </div>
         </div>
-    </header>
+      </header>
 
-    <main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+      <main className="max-w-6xl mx-auto px-6 py-12 space-y-20">
         
-        <!-- INFOGRAFIS 1: PROFIL & METODOLOGI -->
-        <section id="metodologi">
-            <div class="flex items-center gap-3 mb-6 text-darkGray">
-                <div class="p-2 rounded-lg bg-primary text-white">
-                    <i data-lucide="clipboard-check"></i>
-                </div>
-                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Profil & Metodologi Riset</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="md:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-gray/10">
-                    <p class="leading-relaxed mb-6">
-                        Riset dilakukan secara terukur menggunakan metode <span class="font-bold text-primary">Ex-post Evaluation</span> dan <span class="font-bold text-primary">Forward Looking Analysis</span> untuk memastikan transisi dari fase darurat ke pemulihan dilakukan berbasis data.
-                    </p>
-                    <div class="flex flex-wrap gap-8 items-center">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="map-pin" class="text-primary"></i>
-                            <div>
-                                <div class="text-xl font-bold">2 Kabupaten</div>
-                                <div class="text-xs text-gray uppercase font-bold tracking-tighter">Aceh Tamiang & Bireuen</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="home" class="text-primary"></i>
-                            <div>
-                                <div class="text-xl font-bold">19 Desa</div>
-                                <div class="text-xs text-gray uppercase font-bold tracking-tighter">Unit Sampel Penelitian</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="users" class="text-primary"></i>
-                            <div>
-                                <div class="text-xl font-bold">109 KK</div>
-                                <div class="text-xs text-gray uppercase font-bold tracking-tighter">Responden Utama</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray p-8 rounded-2xl shadow-sm text-white flex flex-col justify-center">
-                    <h3 class="text-lg font-bold font-montserrat mb-3 uppercase italic">Insight Kebijakan:</h3>
-                    <p class="text-sm leading-relaxed opacity-90 italic">
-                        Penentuan lokasi intervensi harus mempertimbangkan kedekatan dengan DAS karena korelasi kuat antara jarak sungai dengan tingkat kerusakan fisik struktur.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- INFOGRAFIS 2: HUNIAN -->
+        {/* INFO 1: TENTANG RISET */}
         <section>
-            <div class="flex items-center gap-3 mb-6 text-darkGray">
-                <div class="p-2 rounded-lg bg-primary text-white">
-                    <i data-lucide="home"></i>
+          <SectionTitle icon={ClipboardCheck} title="Tentang Riset Ini" />
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="md:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-gray/10">
+              <p className="leading-relaxed mb-6 text-lg">
+                Riset ini dilakukan untuk melihat kondisi nyata warga setelah banjir. Kami mengumpulkan data agar bantuan selanjutnya bisa lebih tepat sasaran dan benar-benar dibutuhkan masyarakat.
+              </p>
+              <div className="flex flex-wrap gap-8 items-center">
+                <div className="flex items-center gap-3">
+                  <MapPin className="text-[#90C83E]" />
+                  <div>
+                    <div className="text-xl font-bold">2 Kabupaten</div>
+                    <div className="text-xs text-gray uppercase font-bold tracking-tighter">Aceh Tamiang & Bireuen</div>
+                  </div>
                 </div>
-                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Klaster Hunian: Krisis Bantaran Sungai</h2>
+                <div className="flex items-center gap-3">
+                  <Home className="text-[#90C83E]" />
+                  <div>
+                    <div className="text-xl font-bold">19 Desa</div>
+                    <div className="text-xs text-gray uppercase font-bold tracking-tighter">Lokasi Penelitian</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Users className="text-[#90C83E]" />
+                  <div>
+                    <div className="text-xl font-bold">109 Keluarga</div>
+                    <div className="text-xs text-gray uppercase font-bold tracking-tighter">Responden Riset</div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div class="bg-white p-6 rounded-xl border-l-4 border-primary shadow-sm">
-                    <div class="text-4xl font-bold text-primary mb-1">18</div>
-                    <div class="text-[10px] md:text-xs font-bold text-darkGray uppercase font-montserrat tracking-tight">Total Hancur</div>
-                    <div class="text-[10px] text-gray mt-2 font-open-sans italic">Rumah hanyut total</div>
-                </div>
-                <div class="bg-white p-6 rounded-xl border-l-4 border-primary shadow-sm">
-                    <div class="text-4xl font-bold text-primary mb-1">11</div>
-                    <div class="text-[10px] md:text-xs font-bold text-darkGray uppercase font-montserrat tracking-tight">Rusak Berat</div>
-                    <div class="text-[10px] text-gray mt-2 font-open-sans italic">Dominan di Tamiang</div>
-                </div>
-                <div class="bg-white p-6 rounded-xl border-l-4 border-primary shadow-sm">
-                    <div class="text-4xl font-bold text-primary mb-1">17</div>
-                    <div class="text-[10px] md:text-xs font-bold text-darkGray uppercase font-montserrat tracking-tight">Rusak Sedang</div>
-                    <div class="text-[10px] text-gray mt-2 font-open-sans italic">Perbaikan struktur</div>
-                </div>
-                <div class="bg-white p-6 rounded-xl border-l-4 border-primary shadow-sm">
-                    <div class="text-4xl font-bold text-primary mb-1">59</div>
-                    <div class="text-[10px] md:text-xs font-bold text-darkGray uppercase font-montserrat tracking-tight">Rusak Ringan</div>
-                    <div class="text-[10px] text-gray mt-2 font-open-sans italic">Terdampak ringan</div>
-                </div>
+            <div className="bg-[#808080] p-8 rounded-2xl shadow-sm text-white flex flex-col justify-center">
+              <h3 className="text-lg font-bold font-montserrat mb-3 uppercase italic">Catatan Penting:</h3>
+              <p className="text-sm leading-relaxed opacity-90 italic">
+                Rumah yang lokasinya sangat dekat dengan sungai memiliki risiko kerusakan paling parah. Hal ini harus jadi pertimbangan utama dalam membangun kembali rumah warga.
+              </p>
             </div>
-
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray/10">
-                <h3 class="text-lg font-bold mb-4 font-montserrat uppercase text-darkGray">Zonasi Risiko & Ketahanan</h3>
-                <div class="flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-full md:w-1/2 space-y-4 text-sm">
-                        <div class="flex justify-between items-center border-b border-gray/10 pb-2">
-                            <span>Lokasi Dalam DAS (<50m)</span>
-                            <span class="font-bold text-red-500 italic uppercase">Risiko Sangat Tinggi</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-gray/10 pb-2">
-                            <span>Stay-in-place (Tetap Bertahan)</span>
-                            <span class="font-bold text-primary italic uppercase">Dominan</span>
-                        </div>
-                        <p class="italic text-gray text-xs">
-                            Alasan tidak relokasi: Ikatan sosial, lokasi sekolah anak, dan kekhawatiran biaya hidup di lokasi baru.
-                        </p>
-                    </div>
-                    <div class="w-full md:w-1/2 bg-[#F5F5F5] p-6 rounded-xl italic text-sm">
-                        <span class="font-bold block text-primary mb-1 uppercase">Rekomendasi:</span>
-                        Rekonstruksi rumah panggung atau tahan banjir untuk wilayah "Dalam DAS" jika relokasi tidak memungkinkan.
-                    </div>
-                </div>
-            </div>
+          </div>
         </section>
 
-        <!-- INFOGRAFIS 3 & 4: WASH & KESEHATAN -->
-        <div class="grid md:grid-cols-2 gap-12">
-            <section>
-                <div class="flex items-center gap-3 mb-6 text-darkGray">
-                    <div class="p-2 rounded-lg bg-primary text-white">
-                        <i data-lucide="droplets"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Air & Sanitasi</h2>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 h-full">
-                    <div class="space-y-6">
-                        <div class="flex items-center justify-between">
-                            <span class="font-bold font-montserrat uppercase text-sm">Sumur Tercemar (Tamiang)</span>
-                            <span class="text-3xl font-bold text-primary">63,4%</span>
-                        </div>
-                        <div class="w-full bg-[#F5F5F5] h-4 rounded-full overflow-hidden">
-                            <div class="bg-primary h-full" style="width: 63.4%"></div>
-                        </div>
-                        <p class="text-sm text-gray italic">
-                            Kontaminasi material lumpur dan bakteri menjadi isu kesehatan primer meskipun infrastruktur fisik terlihat utuh.
-                        </p>
-                        <div class="p-4 bg-gray/10 rounded-lg text-sm italic">
-                            <span class="font-bold block uppercase text-xs mb-1">Fakta Lapangan:</span>
-                            MCK Mandiri terbukti lebih resilien dibandingkan fasilitas komunal yang sering rusak pertama kali saat banjir.
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div class="flex items-center gap-3 mb-6 text-darkGray">
-                    <div class="p-2 rounded-lg bg-primary text-white">
-                        <i data-lucide="activity"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Layanan Kesehatan</h2>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 h-full">
-                    <div class="space-y-6">
-                        <div class="flex items-center justify-between">
-                            <span class="font-bold font-montserrat uppercase italic text-sm">Puskesmas Belum Normal</span>
-                            <span class="text-3xl font-bold text-primary">89,8%</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="text-center p-3 bg-[#F5F5F5] rounded-xl border-t-2 border-primary">
-                                <div class="text-2xl font-bold">50%</div>
-                                <div class="text-[10px] font-bold uppercase text-gray tracking-tighter">Kasus ISPA</div>
-                            </div>
-                            <div class="text-center p-3 bg-[#F5F5F5] rounded-xl border-t-2 border-primary">
-                                <div class="text-2xl font-bold">30%</div>
-                                <div class="text-[10px] font-bold uppercase text-gray tracking-tighter">Penyakit Kulit</div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-gray italic leading-relaxed">
-                            Ketidaktahuan masyarakat akan status operasional layanan kesehatan primer memperparah kondisi pemulihan fisik penyintas.
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- INFOGRAFIS 5: PSIKOSOSIAL -->
-        <section class="bg-primary p-8 md:p-12 rounded-[2rem] shadow-xl text-white">
-            <div class="flex items-center gap-3 mb-10">
-                <div class="p-2 rounded-lg bg-white text-primary">
-                    <i data-lucide="smile"></i>
-                </div>
-                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Klaster Psikososial (Trauma)</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-bold font-montserrat tracking-wider text-sm">TRAUMA ANAK</span>
-                            <span class="font-bold tracking-widest italic">76.06%</span>
-                        </div>
-                        <div class="w-full bg-white/30 h-3 rounded-full overflow-hidden">
-                            <div class="bg-white h-full" style="width: 76.06%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-bold font-montserrat tracking-wider text-sm">TRAUMA DEWASA</span>
-                            <span class="font-bold tracking-widest italic">94.00%+</span>
-                        </div>
-                        <div class="w-full bg-white/30 h-3 rounded-full overflow-hidden">
-                            <div class="bg-white h-full" style="width: 94%"></div>
-                        </div>
-                    </div>
-                    <p class="text-sm font-light leading-relaxed italic opacity-90">
-                        Luka psikologis bersifat masif. Gejala muncul setiap hujan lebat, menandakan kebutuhan mendesak akan Psychological First Aid (PFA) dan Ruang Ramah Anak (RRA).
-                    </p>
-                </div>
-                <div class="bg-white/10 p-8 rounded-2xl border border-white/20">
-                    <h3 class="text-xl font-bold mb-4 font-montserrat uppercase italic tracking-widest">Aksi Lanjutan:</h3>
-                    <ul class="space-y-3 text-sm italic">
-                        <li class="flex items-start gap-2">• Integrasi MHPSS ke dalam kurikulum sekolah darurat.</li>
-                        <li class="flex items-start gap-2">• Konseling berkelompok bagi kepala keluarga terdampak.</li>
-                        <li class="flex items-start gap-2">• Screening psikologis rutin di pos kesehatan desa.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- INFOGRAFIS 6: EKONOMI -->
+        {/* INFO 2: KONDISI RUMAH */}
         <section>
-            <div class="flex items-center gap-3 mb-6 text-darkGray">
-                <div class="p-2 rounded-lg bg-primary text-white">
-                    <i data-lucide="briefcase"></i>
+          <SectionTitle icon={Home} title="Kondisi Rumah Warga" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <StatCard label="Hancur/Hanyut" value="18" subtext="Rumah hilang terbawa arus" />
+            <StatCard label="Rusak Berat" value="11" subtext="Pondasi atau dinding jebol" />
+            <StatCard label="Rusak Sedang" value="17" subtext="Perlu perbaikan bangunan" />
+            <StatCard label="Rusak Ringan" value="59" subtext="Terendam lumpur & sampah" />
+          </div>
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray/10">
+            <h3 className="text-lg font-bold mb-4 font-montserrat uppercase text-darkGray">Risiko Lokasi & Keamanan</h3>
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="w-full md:w-1/2 space-y-4 text-sm">
+                <div className="flex justify-between items-center border-b border-gray/10 pb-2">
+                  <span>Dekat Pinggir Sungai (&lt;50m)</span>
+                  <span className="font-bold text-red-500 italic">SANGAT BERBAHAYA</span>
                 </div>
-                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Ekonomi & Livelihood</h2>
+                <div className="flex justify-between items-center border-b border-gray/10 pb-2">
+                  <span>Warga Tetap Bertahan</span>
+                  <span className="font-bold text-[#90C83E] italic">SANGAT TINGGI</span>
+                </div>
+                <p className="italic text-gray">
+                  Mengapa warga tidak pindah? Karena dekat dengan mata pencaharian, sekolah anak, dan ikatan sosial antar tetangga.
+                </p>
+              </div>
+              <div className="w-full md:w-1/2 bg-[#F5F5F5] p-6 rounded-xl italic">
+                <span className="font-bold block text-[#90C83E] mb-1">Saran Program:</span>
+                Jika relokasi sulit dilakukan, sebaiknya rumah dibangun dengan konsep "Rumah Panggung" agar lebih aman dari banjir susulan.
+              </div>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 flex flex-col justify-center">
-                    <div class="text-5xl font-bold text-primary mb-2 tracking-tighter italic">71.6%</div>
-                    <div class="text-sm font-bold uppercase font-montserrat text-darkGray tracking-widest">Kehilangan Pendapatan</div>
-                    <p class="text-xs text-gray mt-4 italic leading-relaxed">
-                        Struktur ekonomi informal sangat rapuh; bantuan harian hilang total selama masa bencana berlangsung.
-                    </p>
-                </div>
-                <div class="md:col-span-2 space-y-4">
-                    <div class="bg-white p-6 rounded-xl shadow-sm flex items-center gap-6 border border-gray/10">
-                        <div class="px-4 py-2 bg-[#F5F5F5] rounded-full text-gray italic font-bold text-xs">BIREUEN</div>
-                        <p class="text-sm italic tracking-tight">Krisis Agraria: Fokus pada <span class="font-bold text-primary">restocking ternak</span> dan rehabilitasi lahan sawah yang rusak berat.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm flex items-center gap-6 border border-gray/10">
-                        <div class="px-4 py-2 bg-[#F5F5F5] rounded-full text-gray italic font-bold text-xs">TAMIANG</div>
-                        <p class="text-sm italic tracking-tight">Krisis Sektor Jasa: Fokus pada <span class="font-bold text-primary">modal usaha mikro</span> dan pemulihan alat kerja harian.</p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </section>
 
-        <!-- INFOGRAFIS 7 & 8: AKSES PASAR & GAP -->
-        <div class="grid md:grid-cols-2 gap-12">
-            <section>
-                <div class="flex items-center gap-3 mb-6 text-darkGray">
-                    <div class="p-2 rounded-lg bg-primary text-white">
-                        <i data-lucide="shopping-cart"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider text-sm md:text-2xl">Akses Pasar</h2>
+        {/* INFO 3 & 4: AIR & KESEHATAN */}
+        <div className="grid md:grid-cols-2 gap-12">
+          <section>
+            <SectionTitle icon={Droplets} title="Air Bersih & Kamar Mandi" />
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 h-full">
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold font-montserrat uppercase">Sumur Tercemar (Tamiang)</span>
+                  <span className="text-3xl font-bold text-[#90C83E]">63,4%</span>
                 </div>
-                <div class="bg-gray p-8 rounded-2xl shadow-sm text-white h-full">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl font-bold italic">80.3%</div>
-                        <div class="text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">Jalan menuju pasar mengalami kerusakan (Aceh Tamiang)</div>
-                    </div>
-                    <div class="space-y-4 text-xs italic">
-                        <p class="leading-relaxed">
-                            Kerusakan jalan berdampak langsung pada naiknya ongkos transportasi, keterlambatan suplai, dan kenaikan harga di tingkat rumah tangga.
-                        </p>
-                        <div class="p-3 bg-white/10 rounded-lg border border-white/10">
-                            <span class="font-bold block mb-1 uppercase tracking-widest italic text-primary">Kondisi di Bireuen:</span>
-                            Akses jalan baik, namun ketersediaan pangan terbatas (10.5%), menandakan krisis pada <span class="font-bold text-white uppercase underline">Daya Beli</span>.
-                        </div>
-                    </div>
+                <div className="w-full bg-[#F5F5F5] h-4 rounded-full overflow-hidden">
+                  <div className="bg-[#90C83E] h-full" style={{ width: '63.4%' }}></div>
                 </div>
-            </section>
+                <p className="text-sm text-gray italic">
+                  Banyak sumur warga yang tercemar lumpur dan air banjir. Meskipun sumur tidak hancur, airnya sudah tidak layak konsumsi.
+                </p>
+                <div className="p-4 bg-[#808080]/10 rounded-lg text-sm italic">
+                  <span className="font-bold block">Temuan:</span>
+                  Kamar mandi pribadi warga lebih awet dibandingkan kamar mandi umum yang sering rusak saat banjir bandang.
+                </div>
+              </div>
+            </div>
+          </section>
 
-            <section>
-                <div class="flex items-center gap-3 mb-6 text-darkGray">
-                    <div class="p-2 rounded-lg bg-primary text-white">
-                        <i data-lucide="alert-triangle"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider text-sm md:text-2xl">Analisis Kesenjangan</h2>
+          <section>
+            <SectionTitle icon={Activity} title="Kondisi Kesehatan" />
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 h-full">
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold font-montserrat uppercase italic">Puskesmas Belum Normal</span>
+                  <span className="text-3xl font-bold text-[#90C83E]">89,8%</span>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 h-full">
-                    <h3 class="text-sm font-bold mb-4 font-montserrat uppercase text-gray tracking-widest italic text-center">Gap antara Bantuan Darurat dan Kebutuhan di Lapangan</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-1/2 text-right text-[10px] uppercase font-bold text-gray tracking-tighter">Bantuan Dominan:</div>
-                            <div class="w-1/2 text-xs font-bold italic tracking-tight uppercase">Sembako & Dapur Umum</div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-1/2 text-right text-[10px] uppercase font-bold text-primary tracking-tighter italic">Gap Kebutuhan:</div>
-                            <div class="w-1/2 text-xs font-bold italic tracking-tight uppercase">Aset Rumah Tangga, Perlengkapan Sekolah (Pendidikan) & Alat Masak</div>
-                        </div>
-                        <div class="pt-4 border-t border-gray/10 text-[10px] italic text-center text-gray leading-relaxed">
-                            "23.9% material lumpur/puing belum tertangani, menjadi sumber risiko kesehatan lanjutan."
-                        </div>
-                    </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-3 bg-[#F5F5F5] rounded-xl border-t-2 border-[#90C83E]">
+                    <div className="text-2xl font-bold">50%</div>
+                    <div className="text-[10px] font-bold uppercase text-gray tracking-tighter">Sakit Saluran Napas</div>
+                  </div>
+                  <div className="text-center p-3 bg-[#F5F5F5] rounded-xl border-t-2 border-[#90C83E]">
+                    <div className="text-2xl font-bold">30%</div>
+                    <div className="text-[10px] font-bold uppercase text-gray tracking-tighter">Penyakit Kulit</div>
+                  </div>
                 </div>
-            </section>
+                <p className="text-xs text-gray italic leading-relaxed">
+                  Banyak warga yang belum tahu apakah layanan kesehatan sudah buka kembali. Debu dan air kotor menjadi pemicu utama sakit pascabencana.
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
 
-        <!-- STRATEGIC RECOMMENDATIONS -->
-        <section class="border-t-4 border-primary pt-12 pb-24">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold font-montserrat text-darkGray uppercase tracking-[0.15em] mb-2 italic">Rekomendasi Strategis</h2>
-                <p class="text-gray italic uppercase tracking-widest text-sm">Aksi Lanjutan - Fase Recovery Support</p>
+        {/* INFO 5: MENTAL/PSIKOLOGIS */}
+        <section className="bg-[#90C83E] p-12 rounded-[2rem] shadow-xl text-white">
+          <SectionTitle icon={Smile} title="Kondisi Mental (Trauma)" dark />
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div>
+                <div className="flex justify-between mb-2">
+                  <span className="font-bold font-montserrat tracking-wider">TRAUMA PADA ANAK</span>
+                  <span className="font-bold tracking-widest italic">76.06%</span>
+                </div>
+                <div className="w-full bg-white/30 h-3 rounded-full overflow-hidden">
+                  <div className="bg-white h-full" style={{ width: '76.06%' }}></div>
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between mb-2">
+                  <span className="font-bold font-montserrat tracking-wider">TRAUMA ORANG DEWASA</span>
+                  <span className="font-bold tracking-widest italic">94.00%+</span>
+                </div>
+                <div className="w-full bg-white/30 h-3 rounded-full overflow-hidden">
+                  <div className="bg-white h-full" style={{ width: '94%' }}></div>
+                </div>
+              </div>
+              <p className="text-sm font-light leading-relaxed italic opacity-90">
+                Hampir semua warga merasa cemas setiap kali hujan deras turun. Anak-anak membutuhkan perhatian khusus agar rasa takut mereka tidak berkepanjangan.
+              </p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="text-center p-6 space-y-3">
-                    <div class="inline-block p-4 bg-primary/10 rounded-full text-primary">
-                        <i data-lucide="droplets" class="w-8 h-8 mx-auto"></i>
-                    </div>
-                    <h4 class="font-bold text-sm font-montserrat tracking-tight uppercase">Infrastruktur</h4>
-                    <p class="text-[10px] text-gray italic leading-relaxed uppercase tracking-tighter">Sumur bor dalam & septic tank aman banjir.</p>
-                </div>
-                <div class="text-center p-6 space-y-3">
-                    <div class="inline-block p-4 bg-primary/10 rounded-full text-primary">
-                        <i data-lucide="briefcase" class="w-8 h-8 mx-auto"></i>
-                    </div>
-                    <h4 class="font-bold text-sm font-montserrat tracking-tight uppercase">Modal Produktif</h4>
-                    <p class="text-[10px] text-gray italic leading-relaxed uppercase tracking-tighter">Bantuan alat kerja & modal usaha mikro desa.</p>
-                </div>
-                <div class="text-center p-6 space-y-3">
-                    <div class="inline-block p-4 bg-primary/10 rounded-full text-primary">
-                        <i data-lucide="clipboard-check" class="w-8 h-8 mx-auto"></i>
-                    </div>
-                    <h4 class="font-bold text-sm font-montserrat tracking-tight uppercase">Sosial & Ibadah</h4>
-                    <p class="text-[10px] text-gray italic leading-relaxed uppercase tracking-tighter">Perlengkapan belajar & sarana ibadah.</p>
-                </div>
-                <div class="text-center p-6 space-y-3">
-                    <div class="inline-block p-4 bg-primary/10 rounded-full text-primary">
-                        <i data-lucide="alert-triangle" class="w-8 h-8 mx-auto"></i>
-                    </div>
-                    <h4 class="font-bold text-sm font-montserrat tracking-tight uppercase text-xs md:text-sm">Normalisasi Lingkungan</h4>
-                    <p class="text-[10px] text-gray italic leading-relaxed uppercase tracking-tighter">Pembersihan material lumpur skala padat.</p>
-                </div>
+            <div className="bg-white/10 p-8 rounded-2xl border border-white/20">
+              <h3 className="text-xl font-bold mb-4 font-montserrat uppercase italic tracking-widest">Langkah Selanjutnya:</h3>
+              <ul className="space-y-3 text-sm italic">
+                <li className="flex items-start gap-2">• Memberikan pendampingan psikologis di sekolah darurat.</li>
+                <li className="flex items-start gap-2">• Membuat program "Ruang Ramah Anak" untuk bermain.</li>
+                <li className="flex items-start gap-2">• Konseling berkelompok untuk orang tua agar lebih tenang.</li>
+              </ul>
             </div>
+          </div>
         </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="bg-darkGray text-white/70 py-12 px-6 text-center text-sm">
-        <div class="max-w-4xl mx-auto space-y-4">
-            <p class="font-montserrat font-bold text-white uppercase tracking-[0.3em] text-lg">INISIATIF ZAKAT INDONESIA</p>
-            <p class="italic uppercase tracking-widest text-[10px]">Dokumen Rekap Riset Strategis - 2026</p>
-            <div class="pt-8 opacity-50 text-[9px] uppercase tracking-tighter italic">
-                Visualisasi data ini dapat menjadi referensi pengambilan kebijakan aksi selanjutnya.
+        {/* INFO 6: EKONOMI */}
+        <section>
+          <SectionTitle icon={Briefcase} title="Mata Pencaharian & Ekonomi" />
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 flex flex-col justify-center">
+              <div className="text-5xl font-bold text-[#90C83E] mb-2 tracking-tighter italic">71.6%</div>
+              <div className="text-sm font-bold uppercase font-montserrat text-darkGray tracking-widest">Kehilangan Penghasilan</div>
+              <p className="text-xs text-gray mt-4 italic leading-relaxed">
+                Kebanyakan warga bekerja di sektor informal (buruh/dagang). Saat banjir, penghasilan mereka otomatis berhenti total.
+              </p>
             </div>
+            <div className="md:col-span-2 space-y-4">
+              <div className="bg-white p-6 rounded-xl shadow-sm flex items-center gap-6 border border-gray/10">
+                <div className="p-4 bg-[#F5F5F5] rounded-full text-[#808080] italic font-bold">BIREUEN</div>
+                <p className="text-sm italic tracking-tight text-darkGray">Fokus: Pemberian bantuan bibit tanaman, pupuk, dan <span className="font-bold text-[#90C83E]">pembelian ternak kembali</span>.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl shadow-sm flex items-center gap-6 border border-gray/10">
+                <div className="p-4 bg-[#F5F5F5] rounded-full text-[#808080] italic font-bold tracking-tighter">TAMIANG</div>
+                <p className="text-sm italic tracking-tight text-darkGray">Fokus: Pemberian <span className="font-bold text-[#90C83E]">modal usaha kecil</span> dan peralatan kerja yang rusak.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* INFO 7 & 8: AKSES PASAR & KEBUTUHAN */}
+        <div className="grid md:grid-cols-2 gap-12">
+          <section>
+            <SectionTitle icon={ShoppingCart} title="Akses Menuju Pasar" />
+            <div className="bg-[#808080] p-8 rounded-2xl shadow-sm text-white">
+              <div className="text-center mb-6">
+                <div className="text-4xl font-bold italic">80.3%</div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-80 uppercase">Jalan ke Pasar Rusak (Tamiang)</div>
+              </div>
+              <div className="space-y-4 text-xs italic">
+                <p className="leading-relaxed">
+                  Masalah utama bukan barang yang tidak ada, tapi <span className="font-bold text-[#90C83E]">jalannya yang hancur</span>. Hal ini membuat ongkos belanja jadi lebih mahal.
+                </p>
+                <div className="p-3 bg-white/10 rounded-lg border border-white/10">
+                  <span className="font-bold block mb-1 uppercase tracking-widest italic text-[#90C83E]">Di Bireuen:</span>
+                  Jalanan bagus, tapi warga tidak punya uang untuk belanja (Daya Beli rendah).
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <SectionTitle icon={AlertTriangle} title="Kesenjangan Bantuan" />
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray/10">
+              <h3 className="text-sm font-bold mb-4 font-montserrat uppercase text-gray tracking-widest italic text-center">Bantuan Darurat vs Kebutuhan Warga</h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-1/2 text-right text-xs uppercase font-bold text-gray tracking-tighter">Bantuan yang Banyak Masuk:</div>
+                  <div className="w-1/2 text-xs font-bold italic tracking-tight">Sembako & Dapur Umum</div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-1/2 text-right text-xs uppercase font-bold text-[#90C83E] tracking-tighter italic">Kebutuhan yang Masih Kurang:</div>
+                  <div className="w-1/2 text-xs font-bold italic tracking-tight uppercase">Alat Masak, Alat Sekolah Anak & Kasur/Alas Tidur</div>
+                </div>
+                <div className="pt-4 border-t border-gray/10 text-xs italic text-center text-gray leading-relaxed">
+                  "Masih ada 23,9% rumah warga yang belum dibersihkan dari lumpur sisa banjir."
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-    </footer>
 
-    <!-- Initialize Lucide Icons -->
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
-</html>
+        {/* REKOMENDASI AKHIR */}
+        <section className="border-t-4 border-[#90C83E] pt-12 pb-24">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold font-montserrat text-darkGray uppercase tracking-[0.15em] mb-2 italic">Rekomendasi Utama</h2>
+            <p className="text-gray italic uppercase tracking-widest text-sm">Langkah Penting untuk Pemulihan Warga</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center p-6 space-y-3">
+              <div className="inline-block p-4 bg-[#90C83E]/10 rounded-full text-[#90C83E]">
+                <Droplets size={32} />
+              </div>
+              <h4 className="font-bold text-sm font-montserrat tracking-tight uppercase">Air Bersih</h4>
+              <p className="text-xs text-gray italic leading-relaxed uppercase tracking-tighter">Bangun sumur bor dalam & filter air.</p>
+            </div>
+            <div className="text-center p-6 space-y-3">
+              <div className="inline-block p-4 bg-[#90C83E]/10 rounded-full text-[#90C83E]">
+                <Briefcase size={32} />
+              </div>
+              <h4 className="font-bold text-sm font-montserrat tracking-tight uppercase">Modal Kerja</h4>
+              <p className="text-xs text-gray italic leading-relaxed uppercase tracking-tighter">Bantuan alat & modal usaha mikro.</p>
+            </div>
+            <div className="text-center p-6 space-y-3">
+              <div className="inline-block p-4 bg-[#90C83E]/10 rounded-full text-[#90C83E]">
+                <ClipboardCheck size={32} />
+              </div>
+              <h4 className="font-bold text-sm font-montserrat tracking-tight uppercase">Sekolah & Ibadah</h4>
+              <p className="text-xs text-gray italic leading-relaxed uppercase tracking-tighter">Alat tulis & perlengkapan ibadah.</p>
+            </div>
+            <div className="text-center p-6 space-y-3">
+              <div className="inline-block p-4 bg-[#90C83E]/10 rounded-full text-[#90C83E]">
+                <AlertTriangle size={32} />
+              </div>
+              <h4 className="font-bold text-sm font-montserrat tracking-tight uppercase">Bersih Lingkungan</h4>
+              <p className="text-xs text-gray italic leading-relaxed uppercase tracking-tighter">Pembersihan sisa lumpur & sampah.</p>
+            </div>
+          </div>
+        </section>
+      </main>
 
+      {/* Footer */}
+      <footer className="bg-[#4D4D4D] text-[#FFFFFF]/70 py-12 px-6 text-center text-sm">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <p className="font-montserrat font-bold text-white uppercase tracking-[0.3em] text-lg">INISIATIF ZAKAT INDONESIA</p>
+          <p className="italic uppercase tracking-widest text-[10px]">Laporan Ringkas Riset Bencana - 2026</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
