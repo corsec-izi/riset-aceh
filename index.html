@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rekap Laporan Riset Aceh 2026 - IZI</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -32,176 +29,170 @@
         }
     </script>
     <style>
-        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; }
-        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Open Sans', sans-serif; }
     </style>
 </head>
-<body>
-    <div id="root"></div>
+<body class="bg-[#F5F5F5] text-iziDark">
 
-    <script type="text/babel">
-        const { 
-            Home, Droplets, Activity, Smile, Briefcase, 
-            ShoppingCart, AlertTriangle, ClipboardCheck, 
-            MapPin, Users 
-        } = lucide;
+    <header class="bg-iziGreen text-white py-16 px-6 text-center shadow-lg">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-extrabold font-montserrat mb-4 tracking-tight uppercase">
+                REKAP LAPORAN HASIL RISET
+            </h1>
+            <p class="text-xl md:text-2xl font-light opacity-90 leading-relaxed uppercase tracking-widest">
+                Dampak Bencana Aceh & Rekomendasi Program
+            </p>
+            <div class="mt-8 flex justify-center gap-4 text-sm font-medium">
+                <span class="bg-white/20 px-4 py-2 rounded-full border border-white/30 italic font-open-sans">Riset oleh Tim SRD IZI</span>
+            </div>
+        </div>
+    </header>
 
-        const SectionTitle = ({ icon: IconComponent, title, dark = false }) => (
-            <div className={`flex items-center gap-3 mb-6 ${dark ? 'text-white' : 'text-iziDark'}`}>
-                <div className={`p-2 rounded-lg ${dark ? 'bg-white text-iziGreen' : 'bg-iziGreen text-white'}`}>
-                    <IconComponent size={24} />
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+        
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 rounded-lg bg-iziGreen text-white">
+                    <i data-lucide="clipboard-check"></i>
                 </div>
-                <h2 className="text-2xl font-bold font-montserrat uppercase tracking-wider">{title}</h2>
+                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Profil & Metodologi Riset</h2>
             </div>
-        );
-
-        const StatCard = ({ label, value, subtext }) => (
-            <div className="bg-white p-6 rounded-xl border-l-4 border-iziGreen shadow-sm">
-                <div className="text-4xl font-bold text-iziGreen mb-1">{value}</div>
-                <div className="text-sm font-bold text-iziDark uppercase font-montserrat tracking-tight">{label}</div>
-                {subtext && <div className="text-xs text-iziGray mt-2 italic">{subtext}</div>}
-            </div>
-        );
-
-        const App = () => {
-            React.useEffect(() => {
-                lucide.createIcons();
-            }, []);
-
-            return (
-                <div className="min-h-screen bg-[#F5F5F5] text-iziDark">
-                    <header className="bg-iziGreen text-white py-16 px-6 text-center shadow-lg">
-                        <div className="max-w-4xl mx-auto">
-                            <h1 className="text-4xl md:text-5xl font-extrabold font-montserrat mb-4 tracking-tight">
-                                REKAP LAPORAN HASIL RISET
-                            </h1>
-                            <p className="text-xl md:text-2xl font-light opacity-90 leading-relaxed uppercase tracking-widest">
-                                Dampak Bencana Aceh & Rekomendasi Program
-                            </p>
-                            <div className="mt-8 flex justify-center gap-4 text-sm font-medium">
-                                <span className="bg-white/20 px-4 py-2 rounded-full border border-white/30 italic">Riset oleh Tim SRD IZI</span>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-iziGray/10">
+                    <p class="leading-relaxed mb-6">
+                        Riset dilakukan secara terukur menggunakan metode <span class="font-bold text-iziGreen">Ex-post Evaluation</span> dan <span className="font-bold text-iziGreen">Forward Looking Analysis</span>.
+                    </p>
+                    <div class="flex flex-wrap gap-8 items-center">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="text-iziGreen"></i>
+                            <div>
+                                <div class="text-xl font-bold">2 Kabupaten</div>
+                                <div class="text-xs text-iziGray uppercase font-bold">Aceh Tamiang & Bireuen</div>
                             </div>
                         </div>
-                    </header>
-
-                    <main className="max-w-6xl mx-auto px-6 py-12 space-y-20">
-                        <section>
-                            <SectionTitle icon={ClipboardCheck} title="Profil & Metodologi Riset" />
-                            <div className="grid md:grid-cols-3 gap-6">
-                                <div className="md:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-iziGray/10">
-                                    <p className="leading-relaxed mb-6">
-                                        Riset dilakukan secara terukur menggunakan metode <span className="font-bold text-iziGreen">Ex-post Evaluation</span> dan <span className="font-bold text-iziGreen">Forward Looking Analysis</span>.
-                                    </p>
-                                    <div className="flex flex-wrap gap-8 items-center">
-                                        <div className="flex items-center gap-3">
-                                            <MapPin className="text-iziGreen" />
-                                            <div>
-                                                <div className="text-xl font-bold">2 Kabupaten</div>
-                                                <div className="text-xs text-iziGray uppercase font-bold">Aceh Tamiang & Bireuen</div>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <Home className="text-iziGreen" />
-                                            <div>
-                                                <div className="text-xl font-bold">19 Desa</div>
-                                                <div className="text-xs text-iziGray uppercase font-bold">Unit Sampel</div>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <Users className="text-iziGreen" />
-                                            <div>
-                                                <div className="text-xl font-bold">109 KK</div>
-                                                <div className="text-xs text-iziGray uppercase font-bold">Responden</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="bg-iziGray p-8 rounded-2xl shadow-sm text-white flex flex-col justify-center italic">
-                                    <h3 className="text-lg font-bold font-montserrat mb-3 uppercase">Insight Kebijakan:</h3>
-                                    <p className="text-sm opacity-90">Penentuan lokasi intervensi harus mempertimbangkan kedekatan dengan DAS.</p>
-                                </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="home" class="text-iziGreen"></i>
+                            <div>
+                                <div class="text-xl font-bold">19 Desa</div>
+                                <div class="text-xs text-iziGray uppercase font-bold">Unit Sampel</div>
                             </div>
-                        </section>
-
-                        <section>
-                            <SectionTitle icon={Home} title="Klaster Hunian" />
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                                <StatCard label="Total Hancur" value="18" subtext="Unit rumah hanyut" />
-                                <StatCard label="Rusak Berat" value="11" subtext="Aceh Tamiang dominan" />
-                                <StatCard label="Rusak Sedang" value="17" subtext="Butuh perbaikan" />
-                                <StatCard label="Rusak Ringan" value="59" subtext="Terdampak ringan" />
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="users" class="text-iziGreen"></i>
+                            <div>
+                                <div class="text-xl font-bold">109 KK</div>
+                                <div class="text-xs text-iziGray uppercase font-bold">Responden</div>
                             </div>
-                        </section>
-
-                        <section className="bg-iziGreen p-12 rounded-[2rem] shadow-xl text-white">
-                            <SectionTitle icon={Smile} title="Klaster Psikososial" dark />
-                            <div className="grid md:grid-cols-2 gap-12 items-center">
-                                <div className="space-y-8">
-                                    <div>
-                                        <div className="flex justify-between mb-2">
-                                            <span className="font-bold font-montserrat">TRAUMA ANAK</span>
-                                            <span className="font-bold italic">76.06%</span>
-                                        </div>
-                                        <div className="w-full bg-white/30 h-3 rounded-full overflow-hidden">
-                                            <div className="bg-white h-full" style={{ width: '76.06%' }}></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="flex justify-between mb-2">
-                                            <span className="font-bold font-montserrat">TRAUMA DEWASA</span>
-                                            <span className="font-bold italic">94.00%+</span>
-                                        </div>
-                                        <div className="w-full bg-white/30 h-3 rounded-full overflow-hidden">
-                                            <div className="bg-white h-full" style={{ width: '94%' }}></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="bg-white/10 p-8 rounded-2xl border border-white/20">
-                                    <h3 className="text-xl font-bold mb-4 font-montserrat uppercase italic">Aksi Lanjutan:</h3>
-                                    <ul className="space-y-3 text-sm italic">
-                                        <li>• Integrasi MHPSS ke sekolah darurat.</li>
-                                        <li>• Konseling berkelompok kepala keluarga.</li>
-                                        <li>• Screening psikologis rutin.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section className="border-t-4 border-iziGreen pt-12 pb-24">
-                            <div className="text-center mb-12">
-                                <h2 className="text-3xl font-extrabold font-montserrat text-iziDark uppercase italic">Rekomendasi Strategis</h2>
-                            </div>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                                <div className="text-center p-6 space-y-3">
-                                    <div className="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><Droplets size={32} /></div>
-                                    <h4 className="font-bold text-sm font-montserrat uppercase">Infrastruktur</h4>
-                                </div>
-                                <div className="text-center p-6 space-y-3">
-                                    <div className="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><Briefcase size={32} /></div>
-                                    <h4 className="font-bold text-sm font-montserrat uppercase">Modal Kerja</h4>
-                                </div>
-                                <div className="text-center p-6 space-y-3">
-                                    <div className="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><ClipboardCheck size={32} /></div>
-                                    <h4 className="font-bold text-sm font-montserrat uppercase">Pendidikan</h4>
-                                </div>
-                                <div className="text-center p-6 space-y-3">
-                                    <div className="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><AlertTriangle size={32} /></div>
-                                    <h4 className="font-bold text-sm font-montserrat uppercase">Normalisasi</h4>
-                                </div>
-                            </div>
-                        </section>
-                    </main>
-
-                    <footer className="bg-iziDark text-white/70 py-12 px-6 text-center text-sm">
-                        <p className="font-montserrat font-bold text-white uppercase tracking-[0.3em] text-lg mb-2">INISIATIF ZAKAT INDONESIA</p>
-                        <p className="italic uppercase text-[10px]">Dokumen Rekap Riset Strategis - 2026</p>
-                    </footer>
+                        </div>
+                    </div>
                 </div>
-            );
-        };
+                <div class="bg-iziGray p-8 rounded-2xl shadow-sm text-white flex flex-col justify-center italic">
+                    <h3 class="text-lg font-bold font-montserrat mb-3 uppercase">Insight Kebijakan:</h3>
+                    <p class="text-sm opacity-90 font-open-sans">Penentuan lokasi intervensi harus mempertimbangkan kedekatan dengan DAS.</p>
+                </div>
+            </div>
+        </section>
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 rounded-lg bg-iziGreen text-white">
+                    <i data-lucide="home"></i>
+                </div>
+                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Klaster Hunian</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-white p-6 rounded-xl border-l-4 border-iziGreen shadow-sm text-center md:text-left">
+                    <div class="text-4xl font-bold text-iziGreen mb-1">18</div>
+                    <div class="text-xs font-bold text-iziDark uppercase font-montserrat tracking-tight">Total Hancur</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl border-l-4 border-iziGreen shadow-sm text-center md:text-left">
+                    <div class="text-4xl font-bold text-iziGreen mb-1">11</div>
+                    <div class="text-xs font-bold text-iziDark uppercase font-montserrat tracking-tight">Rusak Berat</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl border-l-4 border-iziGreen shadow-sm text-center md:text-left">
+                    <div class="text-4xl font-bold text-iziGreen mb-1">17</div>
+                    <div class="text-xs font-bold text-iziDark uppercase font-montserrat tracking-tight">Rusak Sedang</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl border-l-4 border-iziGreen shadow-sm text-center md:text-left">
+                    <div class="text-4xl font-bold text-iziGreen mb-1">59</div>
+                    <div class="text-xs font-bold text-iziDark uppercase font-montserrat tracking-tight">Rusak Ringan</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-iziGreen p-10 md:p-12 rounded-[2rem] shadow-xl text-white">
+            <div class="flex items-center gap-3 mb-10">
+                <div class="p-2 rounded-lg bg-white text-iziGreen">
+                    <i data-lucide="smile"></i>
+                </div>
+                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Klaster Psikososial</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-bold font-montserrat">TRAUMA ANAK</span>
+                            <span class="font-bold italic">76.06%</span>
+                        </div>
+                        <div class="w-full bg-white/30 h-3 rounded-full overflow-hidden">
+                            <div class="bg-white h-full" style="width: 76.06%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-bold font-montserrat">TRAUMA DEWASA</span>
+                            <span class="font-bold italic">94.00%+</span>
+                        </div>
+                        <div class="w-full bg-white/30 h-3 rounded-full overflow-hidden">
+                            <div class="bg-white h-full" style="width: 94%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/10 p-8 rounded-2xl border border-white/20">
+                    <h3 class="text-xl font-bold mb-4 font-montserrat uppercase italic">Aksi Lanjutan:</h3>
+                    <ul class="space-y-3 text-sm italic font-open-sans">
+                        <li>• Integrasi MHPSS ke sekolah darurat.</li>
+                        <li>• Konseling berkelompok kepala keluarga.</li>
+                        <li>• Screening psikologis rutin.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-t-4 border-iziGreen pt-12 pb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold font-montserrat text-iziDark uppercase italic">Rekomendasi Strategis</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 space-y-3">
+                    <div class="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><i data-lucide="droplets"></i></div>
+                    <h4 class="font-bold text-sm font-montserrat uppercase">Infrastruktur</h4>
+                </div>
+                <div class="text-center p-6 space-y-3">
+                    <div class="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><i data-lucide="briefcase"></i></div>
+                    <h4 class="font-bold text-sm font-montserrat uppercase">Modal Kerja</h4>
+                </div>
+                <div class="text-center p-6 space-y-3">
+                    <div class="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><i data-lucide="clipboard-check"></i></div>
+                    <h4 class="font-bold text-sm font-montserrat uppercase">Pendidikan</h4>
+                </div>
+                <div class="text-center p-6 space-y-3">
+                    <div class="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><i data-lucide="alert-triangle"></i></div>
+                    <h4 class="font-bold text-sm font-montserrat uppercase">Normalisasi</h4>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-iziDark text-white/70 py-12 px-6 text-center text-sm">
+        <p class="font-montserrat font-bold text-white uppercase tracking-[0.3em] text-lg mb-2">INISIATIF ZAKAT INDONESIA</p>
+        <p class="italic uppercase text-[10px]">Dokumen Rekap Riset Strategis - 2026</p>
+    </footer>
+
+    <script>
+        // Inisialisasi Ikon
+        lucide.createIcons();
     </script>
 </body>
 </html>
