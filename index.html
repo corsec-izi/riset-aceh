@@ -3,38 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rekap Laporan Riset Aceh 2026 - IZI</title>
+    <title>Rekap Laporan Hasil Riset - Dampak Bencana Aceh</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        'montserrat': ['Montserrat', 'sans-serif'],
-                        'open-sans': ['Open Sans', 'sans-serif'],
-                    },
                     colors: {
-                        iziGreen: '#90C83E',
-                        iziGray: '#808080',
-                        iziDark: '#4D4D4D',
+                        primary: '#90C83E', // C:44 M:00 Y:99 K:00
+                        gray: '#808080',    // C:00 M:00 Y:00 K:50
+                        darkGray: '#4D4D4D', // C:00 M:00 Y:00 K:70
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        openSans: ['Open Sans', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+
     <style>
         body { font-family: 'Open Sans', sans-serif; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
     </style>
 </head>
-<body class="bg-[#F5F5F5] text-iziDark">
+<body class="bg-[#F5F5F5] text-darkGray">
 
-    <header class="bg-iziGreen text-white py-16 px-6 text-center shadow-lg">
+    <!-- Header / Hero -->
+    <header class="bg-primary text-white py-16 px-6 text-center shadow-lg">
         <div class="max-w-4xl mx-auto">
             <h1 class="text-4xl md:text-5xl font-extrabold font-montserrat mb-4 tracking-tight uppercase">
                 REKAP LAPORAN HASIL RISET
@@ -43,97 +51,191 @@
                 Dampak Bencana Aceh & Rekomendasi Program
             </p>
             <div class="mt-8 flex justify-center gap-4 text-sm font-medium">
-                <span class="bg-white/20 px-4 py-2 rounded-full border border-white/30 italic font-open-sans">Riset oleh Tim SRD IZI</span>
+                <span class="bg-white/20 px-4 py-2 rounded-full border border-white/30 italic">Riset dilakukan oleh Tim SRD IZI</span>
             </div>
         </div>
     </header>
 
     <main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
         
-        <section>
-            <div class="flex items-center gap-3 mb-6">
-                <div class="p-2 rounded-lg bg-iziGreen text-white">
+        <!-- INFOGRAFIS 1: PROFIL & METODOLOGI -->
+        <section id="metodologi">
+            <div class="flex items-center gap-3 mb-6 text-darkGray">
+                <div class="p-2 rounded-lg bg-primary text-white">
                     <i data-lucide="clipboard-check"></i>
                 </div>
                 <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Profil & Metodologi Riset</h2>
             </div>
             
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="md:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-iziGray/10">
+                <div class="md:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-gray/10">
                     <p class="leading-relaxed mb-6">
-                        Riset dilakukan secara terukur menggunakan metode <span class="font-bold text-iziGreen">Ex-post Evaluation</span> dan <span className="font-bold text-iziGreen">Forward Looking Analysis</span>.
+                        Riset dilakukan secara terukur menggunakan metode <span class="font-bold text-primary">Ex-post Evaluation</span> dan <span class="font-bold text-primary">Forward Looking Analysis</span> untuk memastikan transisi dari fase darurat ke pemulihan dilakukan berbasis data.
                     </p>
                     <div class="flex flex-wrap gap-8 items-center">
                         <div class="flex items-center gap-3">
-                            <i data-lucide="map-pin" class="text-iziGreen"></i>
+                            <i data-lucide="map-pin" class="text-primary"></i>
                             <div>
                                 <div class="text-xl font-bold">2 Kabupaten</div>
-                                <div class="text-xs text-iziGray uppercase font-bold">Aceh Tamiang & Bireuen</div>
+                                <div class="text-xs text-gray uppercase font-bold tracking-tighter">Aceh Tamiang & Bireuen</div>
                             </div>
                         </div>
                         <div class="flex items-center gap-3">
-                            <i data-lucide="home" class="text-iziGreen"></i>
+                            <i data-lucide="home" class="text-primary"></i>
                             <div>
                                 <div class="text-xl font-bold">19 Desa</div>
-                                <div class="text-xs text-iziGray uppercase font-bold">Unit Sampel</div>
+                                <div class="text-xs text-gray uppercase font-bold tracking-tighter">Unit Sampel Penelitian</div>
                             </div>
                         </div>
                         <div class="flex items-center gap-3">
-                            <i data-lucide="users" class="text-iziGreen"></i>
+                            <i data-lucide="users" class="text-primary"></i>
                             <div>
                                 <div class="text-xl font-bold">109 KK</div>
-                                <div class="text-xs text-iziGray uppercase font-bold">Responden</div>
+                                <div class="text-xs text-gray uppercase font-bold tracking-tighter">Responden Utama</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-iziGray p-8 rounded-2xl shadow-sm text-white flex flex-col justify-center italic">
-                    <h3 class="text-lg font-bold font-montserrat mb-3 uppercase">Insight Kebijakan:</h3>
-                    <p class="text-sm opacity-90 font-open-sans">Penentuan lokasi intervensi harus mempertimbangkan kedekatan dengan DAS.</p>
+                <div class="bg-gray p-8 rounded-2xl shadow-sm text-white flex flex-col justify-center">
+                    <h3 class="text-lg font-bold font-montserrat mb-3 uppercase italic">Insight Kebijakan:</h3>
+                    <p class="text-sm leading-relaxed opacity-90 italic">
+                        Penentuan lokasi intervensi harus mempertimbangkan kedekatan dengan DAS karena korelasi kuat antara jarak sungai dengan tingkat kerusakan fisik struktur.
+                    </p>
                 </div>
             </div>
         </section>
 
+        <!-- INFOGRAFIS 2: HUNIAN -->
         <section>
-            <div class="flex items-center gap-3 mb-6">
-                <div class="p-2 rounded-lg bg-iziGreen text-white">
+            <div class="flex items-center gap-3 mb-6 text-darkGray">
+                <div class="p-2 rounded-lg bg-primary text-white">
                     <i data-lucide="home"></i>
                 </div>
-                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Klaster Hunian</h2>
+                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Klaster Hunian: Krisis Bantaran Sungai</h2>
             </div>
+
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div class="bg-white p-6 rounded-xl border-l-4 border-iziGreen shadow-sm text-center md:text-left">
-                    <div class="text-4xl font-bold text-iziGreen mb-1">18</div>
-                    <div class="text-xs font-bold text-iziDark uppercase font-montserrat tracking-tight">Total Hancur</div>
+                <div class="bg-white p-6 rounded-xl border-l-4 border-primary shadow-sm">
+                    <div class="text-4xl font-bold text-primary mb-1">18</div>
+                    <div class="text-[10px] md:text-xs font-bold text-darkGray uppercase font-montserrat tracking-tight">Total Hancur</div>
+                    <div class="text-[10px] text-gray mt-2 font-open-sans italic">Rumah hanyut total</div>
                 </div>
-                <div class="bg-white p-6 rounded-xl border-l-4 border-iziGreen shadow-sm text-center md:text-left">
-                    <div class="text-4xl font-bold text-iziGreen mb-1">11</div>
-                    <div class="text-xs font-bold text-iziDark uppercase font-montserrat tracking-tight">Rusak Berat</div>
+                <div class="bg-white p-6 rounded-xl border-l-4 border-primary shadow-sm">
+                    <div class="text-4xl font-bold text-primary mb-1">11</div>
+                    <div class="text-[10px] md:text-xs font-bold text-darkGray uppercase font-montserrat tracking-tight">Rusak Berat</div>
+                    <div class="text-[10px] text-gray mt-2 font-open-sans italic">Dominan di Tamiang</div>
                 </div>
-                <div class="bg-white p-6 rounded-xl border-l-4 border-iziGreen shadow-sm text-center md:text-left">
-                    <div class="text-4xl font-bold text-iziGreen mb-1">17</div>
-                    <div class="text-xs font-bold text-iziDark uppercase font-montserrat tracking-tight">Rusak Sedang</div>
+                <div class="bg-white p-6 rounded-xl border-l-4 border-primary shadow-sm">
+                    <div class="text-4xl font-bold text-primary mb-1">17</div>
+                    <div class="text-[10px] md:text-xs font-bold text-darkGray uppercase font-montserrat tracking-tight">Rusak Sedang</div>
+                    <div class="text-[10px] text-gray mt-2 font-open-sans italic">Perbaikan struktur</div>
                 </div>
-                <div class="bg-white p-6 rounded-xl border-l-4 border-iziGreen shadow-sm text-center md:text-left">
-                    <div class="text-4xl font-bold text-iziGreen mb-1">59</div>
-                    <div class="text-xs font-bold text-iziDark uppercase font-montserrat tracking-tight">Rusak Ringan</div>
+                <div class="bg-white p-6 rounded-xl border-l-4 border-primary shadow-sm">
+                    <div class="text-4xl font-bold text-primary mb-1">59</div>
+                    <div class="text-[10px] md:text-xs font-bold text-darkGray uppercase font-montserrat tracking-tight">Rusak Ringan</div>
+                    <div class="text-[10px] text-gray mt-2 font-open-sans italic">Terdampak ringan</div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray/10">
+                <h3 class="text-lg font-bold mb-4 font-montserrat uppercase text-darkGray">Zonasi Risiko & Ketahanan</h3>
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-1/2 space-y-4 text-sm">
+                        <div class="flex justify-between items-center border-b border-gray/10 pb-2">
+                            <span>Lokasi Dalam DAS (<50m)</span>
+                            <span class="font-bold text-red-500 italic uppercase">Risiko Sangat Tinggi</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-gray/10 pb-2">
+                            <span>Stay-in-place (Tetap Bertahan)</span>
+                            <span class="font-bold text-primary italic uppercase">Dominan</span>
+                        </div>
+                        <p class="italic text-gray text-xs">
+                            Alasan tidak relokasi: Ikatan sosial, lokasi sekolah anak, dan kekhawatiran biaya hidup di lokasi baru.
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2 bg-[#F5F5F5] p-6 rounded-xl italic text-sm">
+                        <span class="font-bold block text-primary mb-1 uppercase">Rekomendasi:</span>
+                        Rekonstruksi rumah panggung atau tahan banjir untuk wilayah "Dalam DAS" jika relokasi tidak memungkinkan.
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-iziGreen p-10 md:p-12 rounded-[2rem] shadow-xl text-white">
+        <!-- INFOGRAFIS 3 & 4: WASH & KESEHATAN -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <section>
+                <div class="flex items-center gap-3 mb-6 text-darkGray">
+                    <div class="p-2 rounded-lg bg-primary text-white">
+                        <i data-lucide="droplets"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Air & Sanitasi</h2>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 h-full">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold font-montserrat uppercase text-sm">Sumur Tercemar (Tamiang)</span>
+                            <span class="text-3xl font-bold text-primary">63,4%</span>
+                        </div>
+                        <div class="w-full bg-[#F5F5F5] h-4 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full" style="width: 63.4%"></div>
+                        </div>
+                        <p class="text-sm text-gray italic">
+                            Kontaminasi material lumpur dan bakteri menjadi isu kesehatan primer meskipun infrastruktur fisik terlihat utuh.
+                        </p>
+                        <div class="p-4 bg-gray/10 rounded-lg text-sm italic">
+                            <span class="font-bold block uppercase text-xs mb-1">Fakta Lapangan:</span>
+                            MCK Mandiri terbukti lebih resilien dibandingkan fasilitas komunal yang sering rusak pertama kali saat banjir.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-center gap-3 mb-6 text-darkGray">
+                    <div class="p-2 rounded-lg bg-primary text-white">
+                        <i data-lucide="activity"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Layanan Kesehatan</h2>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 h-full">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold font-montserrat uppercase italic text-sm">Puskesmas Belum Normal</span>
+                            <span class="text-3xl font-bold text-primary">89,8%</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-3 bg-[#F5F5F5] rounded-xl border-t-2 border-primary">
+                                <div class="text-2xl font-bold">50%</div>
+                                <div class="text-[10px] font-bold uppercase text-gray tracking-tighter">Kasus ISPA</div>
+                            </div>
+                            <div class="text-center p-3 bg-[#F5F5F5] rounded-xl border-t-2 border-primary">
+                                <div class="text-2xl font-bold">30%</div>
+                                <div class="text-[10px] font-bold uppercase text-gray tracking-tighter">Penyakit Kulit</div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray italic leading-relaxed">
+                            Ketidaktahuan masyarakat akan status operasional layanan kesehatan primer memperparah kondisi pemulihan fisik penyintas.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- INFOGRAFIS 5: PSIKOSOSIAL -->
+        <section class="bg-primary p-8 md:p-12 rounded-[2rem] shadow-xl text-white">
             <div class="flex items-center gap-3 mb-10">
-                <div class="p-2 rounded-lg bg-white text-iziGreen">
+                <div class="p-2 rounded-lg bg-white text-primary">
                     <i data-lucide="smile"></i>
                 </div>
-                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Klaster Psikososial</h2>
+                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Klaster Psikososial (Trauma)</h2>
             </div>
+            
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-8">
                     <div>
                         <div class="flex justify-between mb-2">
-                            <span class="font-bold font-montserrat">TRAUMA ANAK</span>
-                            <span class="font-bold italic">76.06%</span>
+                            <span class="font-bold font-montserrat tracking-wider text-sm">TRAUMA ANAK</span>
+                            <span class="font-bold tracking-widest italic">76.06%</span>
                         </div>
                         <div class="w-full bg-white/30 h-3 rounded-full overflow-hidden">
                             <div class="bg-white h-full" style="width: 76.06%"></div>
@@ -141,57 +243,162 @@
                     </div>
                     <div>
                         <div class="flex justify-between mb-2">
-                            <span class="font-bold font-montserrat">TRAUMA DEWASA</span>
-                            <span class="font-bold italic">94.00%+</span>
+                            <span class="font-bold font-montserrat tracking-wider text-sm">TRAUMA DEWASA</span>
+                            <span class="font-bold tracking-widest italic">94.00%+</span>
                         </div>
                         <div class="w-full bg-white/30 h-3 rounded-full overflow-hidden">
                             <div class="bg-white h-full" style="width: 94%"></div>
                         </div>
                     </div>
+                    <p class="text-sm font-light leading-relaxed italic opacity-90">
+                        Luka psikologis bersifat masif. Gejala muncul setiap hujan lebat, menandakan kebutuhan mendesak akan Psychological First Aid (PFA) dan Ruang Ramah Anak (RRA).
+                    </p>
                 </div>
                 <div class="bg-white/10 p-8 rounded-2xl border border-white/20">
-                    <h3 class="text-xl font-bold mb-4 font-montserrat uppercase italic">Aksi Lanjutan:</h3>
-                    <ul class="space-y-3 text-sm italic font-open-sans">
-                        <li>• Integrasi MHPSS ke sekolah darurat.</li>
-                        <li>• Konseling berkelompok kepala keluarga.</li>
-                        <li>• Screening psikologis rutin.</li>
+                    <h3 class="text-xl font-bold mb-4 font-montserrat uppercase italic tracking-widest">Aksi Lanjutan:</h3>
+                    <ul class="space-y-3 text-sm italic">
+                        <li class="flex items-start gap-2">• Integrasi MHPSS ke dalam kurikulum sekolah darurat.</li>
+                        <li class="flex items-start gap-2">• Konseling berkelompok bagi kepala keluarga terdampak.</li>
+                        <li class="flex items-start gap-2">• Screening psikologis rutin di pos kesehatan desa.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section class="border-t-4 border-iziGreen pt-12 pb-24">
+        <!-- INFOGRAFIS 6: EKONOMI -->
+        <section>
+            <div class="flex items-center gap-3 mb-6 text-darkGray">
+                <div class="p-2 rounded-lg bg-primary text-white">
+                    <i data-lucide="briefcase"></i>
+                </div>
+                <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider">Ekonomi & Livelihood</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 flex flex-col justify-center">
+                    <div class="text-5xl font-bold text-primary mb-2 tracking-tighter italic">71.6%</div>
+                    <div class="text-sm font-bold uppercase font-montserrat text-darkGray tracking-widest">Kehilangan Pendapatan</div>
+                    <p class="text-xs text-gray mt-4 italic leading-relaxed">
+                        Struktur ekonomi informal sangat rapuh; bantuan harian hilang total selama masa bencana berlangsung.
+                    </p>
+                </div>
+                <div class="md:col-span-2 space-y-4">
+                    <div class="bg-white p-6 rounded-xl shadow-sm flex items-center gap-6 border border-gray/10">
+                        <div class="px-4 py-2 bg-[#F5F5F5] rounded-full text-gray italic font-bold text-xs">BIREUEN</div>
+                        <p class="text-sm italic tracking-tight">Krisis Agraria: Fokus pada <span class="font-bold text-primary">restocking ternak</span> dan rehabilitasi lahan sawah yang rusak berat.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm flex items-center gap-6 border border-gray/10">
+                        <div class="px-4 py-2 bg-[#F5F5F5] rounded-full text-gray italic font-bold text-xs">TAMIANG</div>
+                        <p class="text-sm italic tracking-tight">Krisis Sektor Jasa: Fokus pada <span class="font-bold text-primary">modal usaha mikro</span> dan pemulihan alat kerja harian.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INFOGRAFIS 7 & 8: AKSES PASAR & GAP -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <section>
+                <div class="flex items-center gap-3 mb-6 text-darkGray">
+                    <div class="p-2 rounded-lg bg-primary text-white">
+                        <i data-lucide="shopping-cart"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider text-sm md:text-2xl">Akses Pasar</h2>
+                </div>
+                <div class="bg-gray p-8 rounded-2xl shadow-sm text-white h-full">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl font-bold italic">80.3%</div>
+                        <div class="text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">Jalan Rusak ke Pasar (Tamiang)</div>
+                    </div>
+                    <div class="space-y-4 text-xs italic">
+                        <p class="leading-relaxed">
+                            Tantangan utama bukan ketersediaan barang, melainkan <span class="font-bold text-primary uppercase">Krisis Aksesibilitas Fisik</span> yang memicu lonjakan biaya transaksi.
+                        </p>
+                        <div class="p-3 bg-white/10 rounded-lg border border-white/10">
+                            <span class="font-bold block mb-1 uppercase tracking-widest italic text-primary">Fakta Unik Bireuen:</span>
+                            Akses jalan baik, namun ketersediaan pangan terbatas (10.5%), menandakan krisis pada <span class="font-bold text-white uppercase underline">Daya Beli</span>.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-center gap-3 mb-6 text-darkGray">
+                    <div class="p-2 rounded-lg bg-primary text-white">
+                        <i data-lucide="alert-triangle"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold font-montserrat uppercase tracking-wider text-sm md:text-2xl">Analisis Kesenjangan</h2>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray/10 h-full">
+                    <h3 class="text-sm font-bold mb-4 font-montserrat uppercase text-gray tracking-widest italic text-center">Bantuan Darurat vs Kebutuhan Nyata</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-1/2 text-right text-[10px] uppercase font-bold text-gray tracking-tighter">Bantuan Dominan:</div>
+                            <div class="w-1/2 text-xs font-bold italic tracking-tight uppercase">Sembako & Dapur Umum</div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-1/2 text-right text-[10px] uppercase font-bold text-primary tracking-tighter italic">Kesenjangan Utama:</div>
+                            <div class="w-1/2 text-xs font-bold italic tracking-tight uppercase">Aset Rumah Tangga, Pendidikan & Alat Masak</div>
+                        </div>
+                        <div class="pt-4 border-t border-gray/10 text-[10px] italic text-center text-gray leading-relaxed">
+                            "23.9% material lumpur/puing belum tertangani, menjadi sumber risiko kesehatan lanjutan."
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- STRATEGIC RECOMMENDATIONS -->
+        <section class="border-t-4 border-primary pt-12 pb-24">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold font-montserrat text-iziDark uppercase italic">Rekomendasi Strategis</h2>
+                <h2 class="text-3xl font-extrabold font-montserrat text-darkGray uppercase tracking-[0.15em] mb-2 italic">Rekomendasi Strategis</h2>
+                <p class="text-gray italic uppercase tracking-widest text-sm">Transformasi Menuju Fase Recovery Support</p>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="text-center p-6 space-y-3">
-                    <div class="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><i data-lucide="droplets"></i></div>
-                    <h4 class="font-bold text-sm font-montserrat uppercase">Infrastruktur</h4>
+                    <div class="inline-block p-4 bg-primary/10 rounded-full text-primary">
+                        <i data-lucide="droplets" class="w-8 h-8 mx-auto"></i>
+                    </div>
+                    <h4 class="font-bold text-sm font-montserrat tracking-tight uppercase">Infrastruktur Tangguh</h4>
+                    <p class="text-[10px] text-gray italic leading-relaxed uppercase tracking-tighter">Sumur bor dalam & septic tank aman banjir.</p>
                 </div>
                 <div class="text-center p-6 space-y-3">
-                    <div class="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><i data-lucide="briefcase"></i></div>
-                    <h4 class="font-bold text-sm font-montserrat uppercase">Modal Kerja</h4>
+                    <div class="inline-block p-4 bg-primary/10 rounded-full text-primary">
+                        <i data-lucide="briefcase" class="w-8 h-8 mx-auto"></i>
+                    </div>
+                    <h4 class="font-bold text-sm font-montserrat tracking-tight uppercase">Modal Produktif</h4>
+                    <p class="text-[10px] text-gray italic leading-relaxed uppercase tracking-tighter">Bantuan alat kerja & modal usaha mikro desa.</p>
                 </div>
                 <div class="text-center p-6 space-y-3">
-                    <div class="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><i data-lucide="clipboard-check"></i></div>
-                    <h4 class="font-bold text-sm font-montserrat uppercase">Pendidikan</h4>
+                    <div class="inline-block p-4 bg-primary/10 rounded-full text-primary">
+                        <i data-lucide="clipboard-check" class="w-8 h-8 mx-auto"></i>
+                    </div>
+                    <h4 class="font-bold text-sm font-montserrat tracking-tight uppercase">Sosial & Ibadah</h4>
+                    <p class="text-[10px] text-gray italic leading-relaxed uppercase tracking-tighter">Perlengkapan belajar & sarana ibadah.</p>
                 </div>
                 <div class="text-center p-6 space-y-3">
-                    <div class="inline-block p-4 bg-iziGreen/10 rounded-full text-iziGreen"><i data-lucide="alert-triangle"></i></div>
-                    <h4 class="font-bold text-sm font-montserrat uppercase">Normalisasi</h4>
+                    <div class="inline-block p-4 bg-primary/10 rounded-full text-primary">
+                        <i data-lucide="alert-triangle" class="w-8 h-8 mx-auto"></i>
+                    </div>
+                    <h4 class="font-bold text-sm font-montserrat tracking-tight uppercase text-xs md:text-sm">Normalisasi Lingkungan</h4>
+                    <p class="text-[10px] text-gray italic leading-relaxed uppercase tracking-tighter">Pembersihan material lumpur skala padat.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-iziDark text-white/70 py-12 px-6 text-center text-sm">
-        <p class="font-montserrat font-bold text-white uppercase tracking-[0.3em] text-lg mb-2">INISIATIF ZAKAT INDONESIA</p>
-        <p class="italic uppercase text-[10px]">Dokumen Rekap Riset Strategis - 2026</p>
+    <!-- Footer -->
+    <footer class="bg-darkGray text-white/70 py-12 px-6 text-center text-sm">
+        <div class="max-w-4xl mx-auto space-y-4">
+            <p class="font-montserrat font-bold text-white uppercase tracking-[0.3em] text-lg">INISIATIF ZAKAT INDONESIA</p>
+            <p class="italic uppercase tracking-widest text-[10px]">Dokumen Rekap Riset Strategis - 2026</p>
+            <div class="pt-8 opacity-50 text-[9px] uppercase tracking-tighter italic">
+                Visualisasi data ini dapat menjadi referensi pengambilan kebijakan aksi selanjutnya.
+            </div>
+        </div>
     </footer>
 
+    <!-- Initialize Lucide Icons -->
     <script>
-        // Inisialisasi Ikon
         lucide.createIcons();
     </script>
 </body>
