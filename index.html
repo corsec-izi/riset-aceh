@@ -12,7 +12,6 @@
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -33,7 +32,7 @@
         }
     </script>
     <style>
-        body { font-family: 'Open Sans', sans-serif; }
+        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; }
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
     </style>
 </head>
@@ -47,17 +46,14 @@
             MapPin, Users 
         } = lucide;
 
-        const SectionTitle = ({ icon: IconName, title, dark = false }) => {
-            const Icon = IconName;
-            return (
-                <div className={`flex items-center gap-3 mb-6 ${dark ? 'text-white' : 'text-iziDark'}`}>
-                    <div className={`p-2 rounded-lg ${dark ? 'bg-white text-iziGreen' : 'bg-iziGreen text-white'}`}>
-                        <Icon size={24} />
-                    </div>
-                    <h2 className="text-2xl font-bold font-montserrat uppercase tracking-wider">{title}</h2>
+        const SectionTitle = ({ icon: IconComponent, title, dark = false }) => (
+            <div className={`flex items-center gap-3 mb-6 ${dark ? 'text-white' : 'text-iziDark'}`}>
+                <div className={`p-2 rounded-lg ${dark ? 'bg-white text-iziGreen' : 'bg-iziGreen text-white'}`}>
+                    <IconComponent size={24} />
                 </div>
-            );
-        };
+                <h2 className="text-2xl font-bold font-montserrat uppercase tracking-wider">{title}</h2>
+            </div>
+        );
 
         const StatCard = ({ label, value, subtext }) => (
             <div className="bg-white p-6 rounded-xl border-l-4 border-iziGreen shadow-sm">
@@ -68,9 +64,12 @@
         );
 
         const App = () => {
+            React.useEffect(() => {
+                lucide.createIcons();
+            }, []);
+
             return (
                 <div className="min-h-screen bg-[#F5F5F5] text-iziDark">
-                    {/* Header */}
                     <header className="bg-iziGreen text-white py-16 px-6 text-center shadow-lg">
                         <div className="max-w-4xl mx-auto">
                             <h1 className="text-4xl md:text-5xl font-extrabold font-montserrat mb-4 tracking-tight">
@@ -86,7 +85,6 @@
                     </header>
 
                     <main className="max-w-6xl mx-auto px-6 py-12 space-y-20">
-                        {/* Section 1 */}
                         <section>
                             <SectionTitle icon={ClipboardCheck} title="Profil & Metodologi Riset" />
                             <div className="grid md:grid-cols-3 gap-6">
@@ -125,7 +123,6 @@
                             </div>
                         </section>
 
-                        {/* Section 2: Hunian */}
                         <section>
                             <SectionTitle icon={Home} title="Klaster Hunian" />
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -136,7 +133,6 @@
                             </div>
                         </section>
 
-                        {/* Section 3: Psikososial */}
                         <section className="bg-iziGreen p-12 rounded-[2rem] shadow-xl text-white">
                             <SectionTitle icon={Smile} title="Klaster Psikososial" dark />
                             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -171,7 +167,6 @@
                             </div>
                         </section>
 
-                        {/* Rekomendasi */}
                         <section className="border-t-4 border-iziGreen pt-12 pb-24">
                             <div className="text-center mb-12">
                                 <h2 className="text-3xl font-extrabold font-montserrat text-iziDark uppercase italic">Rekomendasi Strategis</h2>
@@ -197,7 +192,6 @@
                         </section>
                     </main>
 
-                    {/* Footer */}
                     <footer className="bg-iziDark text-white/70 py-12 px-6 text-center text-sm">
                         <p className="font-montserrat font-bold text-white uppercase tracking-[0.3em] text-lg mb-2">INISIATIF ZAKAT INDONESIA</p>
                         <p className="italic uppercase text-[10px]">Dokumen Rekap Riset Strategis - 2026</p>
@@ -208,11 +202,6 @@
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
-        
-        // Initialize Lucide icons after React renders
-        setTimeout(() => {
-            lucide.createIcons();
-        }, 500);
     </script>
 </body>
 </html>
